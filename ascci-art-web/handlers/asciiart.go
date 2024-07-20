@@ -1,0 +1,35 @@
+package docker
+
+import (
+	"fmt"
+	"net/http"
+	utils "docker/utlis"
+)
+
+func AsciiArt(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "405 Method not allowed.", http.StatusMethodNotAllowed)
+		return
+	}
+
+	data := r.PostFormValue("text")
+	banners := r.PostFormValue("banner")
+
+	if len(data) == 0 {
+		http.Error(w, "400 bad request.", http.StatusBadRequest)
+		return
+	}
+
+	if len(data) > 1000 {
+		http.Error(w, "413 Request Entity Too Large.", http.StatusRequestEntityTooLarge)
+		return
+	}
+
+	result, err := utils.Generator(data, banners)
+	if err != nil {
+		http.Error(w, "400 bad request.", http.StatusBadRequest)
+		return
+	}
+
+	fmt.Fprintf(w, "%s", result)
+}

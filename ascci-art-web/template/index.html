@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascii-Art-Web</title>
+    <!-- <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .B {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 10px solid gray;
+            border-radius: 4px;
+            width: 50%;
+            margin-left: 500px;
+            padding: 20px;
+            margin-top: 100px;
+        }
+        .btn {
+            margin-left: 30px;
+        }
+    </style> -->
+</head>
+<body>
+    <div class="B">
+        <form action="/ascii-art" method="post">
+            <label for="text"><strong>welcome to our simple website you can put you text down in this textarea to Generate it into asccii </strong></label><br><br>
+            <textarea name="text" id="text" required></textarea><br>
+            <p><strong>select your banner down here : </strong></p>
+
+
+            <input type="radio" value="standard" name="banner" id="standard" checked>
+            <label for="standard">standard</label><br>
+            
+
+
+            <input type="radio" value="shadow" name="banner" id="shadow">
+            <label for="shadow">shadow</label><br>
+
+
+
+            <input type="radio" value="thinkertoy" name="banner" id="thinkertoy">
+            <label for="thinkertoy">thinkertoy</label><br><br>
+
+
+
+            <input class="btn" type="submit" value="Generate">
+        </form>
+    </div>
+</body>
+</html>
