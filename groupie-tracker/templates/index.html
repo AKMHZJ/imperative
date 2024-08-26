@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie_Tracker</title>
+</head>
+<body>
+    <header>
+        <h1>Groupie Trackers</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/artists">Artists</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Artists</h2>
+        {{range .Artists }}
+        <div class="artists-grid">
+            <div class="artist-card">
+                <img src="{{.Image}}" alt="{{.Name}}" class="artist-image">
+                <h3>{{.Name}}</h3>
+                <p>Created: {{.CreationDate}}</p>
+                <p>First Album: {{.FirstAlbum}}</p>
+                <a href="/Artist/{{.ID}}" class="btn">View Details</a>
+            </div>
+            {{end}}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Groupie Trackers. All rights reserved.</p>
+    </footer>
+</body>
+</html>
