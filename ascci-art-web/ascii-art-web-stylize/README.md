@@ -1,62 +1,29 @@
-## ascii-art-web
+## ascii-art-stylize
 
 ### Objectives
 
-Ascii-art-web consists in creating and running a server, in which it will be possible to use a web **GUI** (graphical user interface) version of your last project, [ascii-art](../ascii-art).
+You must follow the same [principles](../README.md) as the first subject.
 
-Your webpage must allow the use of the different banners:
+Ascii-art-stylize consists on making your site :
 
-- [shadow](../ascii-art/shadow.txt)
-- [standard](../ascii-art/standard.txt)
-- [thinkertoy](../ascii-art/thinkertoy.txt)
-
-Implement the following HTTP endpoints:
-
-1. GET `/`: Sends HTML response, the main page.\
-   1.1. GET Tip: [go templates](https://golang.org/pkg/html/template/) to receive and display data from the server.
-
-2. POST `/ascii-art`: that sends data to Go server (text and a banner)\
-   2.1. POST Tip: use form and other types of [tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) to make the post request.\
-
-The way you display the result from the POST is up to you. What we recommend are one of the following :
-
-- Display the result in the route `/ascii-art` after the POST is completed. So going from the home page to another page.
-- Or display the result of the POST in the home page. This way appending the results in the home page.
-
-The main page must have:
-
-- text input
-- radio buttons, select object or anything else to switch between banners
-- button, which sends a POST request to '/ascii-art' and outputs the result on the page.
-
-### HTTP status code
-
-Your endpoints must return appropriate HTTP status codes.
-
-- OK (200), if everything went without errors.
-- Not Found, if nothing is found, for example templates or banners.
-- Bad Request, for incorrect requests.
-- Internal Server Error, for unhandled errors.
-
-## Markdown
-
-In the root project directory create a `README.MD` file with the following sections and contents:
-
-- Description
-- Authors
-- Usage: how to run
-- Implementation details: algorithm
+- more appealing, interactive and intuitive.
+- more user friendly.
+- give more feedback to the user.
 
 ### Instructions
 
-- HTTP server must be written in **Go**.
-- HTML templates must be in the project root directory _templates_.
-- The code must respect the [good practices](../good-practices/README.md).
+- Your project must contain **CSS**.
+- The code must respect the [**good practices**](../../good-practices/README.md).
+- We suggest that you search for the principles of a good website design.
+- It must be possible to see the text properly regardless of the colors used.
+- The website must be [consistent](https://digitalcommunications.wp.st-andrews.ac.uk/2016/04/07/why-is-consistency-important-in-web-design/), [responsive](https://smallbiztrends.com/2013/05/what-is-responsive-web-design.html) and [interactive](https://en.m.wikipedia.org/wiki/Interactive_design).
 
 ### Allowed packages
 
 - Only the [standard go](https://golang.org/pkg/) packages are allowed
 
-### Usage
+This project will help you learn about:
 
-- [Here's an example](http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20).
+- The basics of human-computer interface.
+- The basics of CSS.
+- Linking CSS and HTML.
