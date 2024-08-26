@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <pre>{{.Result}}</pre>
+      <form action="/ascii-art/Download" method="post">
+        <button type="submit">Download</button>
+        <input type="hidden" name="t" value="{{.Data}}" />
+        <input type="hidden" name="b" value="{{.Banners}}" />
+      </form>
+    </div>
+  </body>
+</html>

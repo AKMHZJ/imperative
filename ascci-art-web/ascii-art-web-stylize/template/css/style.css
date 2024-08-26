@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url(/template/images/wallpaperflare.com_wallpaper.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%
+
+}
+
+.h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 14px;
+    color: rgb(88, 129, 129);
+    text-shadow: 10px 10px 8px;
+    box-shadow: 10px 10px 10px rgb(88, 129, 129);
+    outline: none;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    margin-top: 80px;
+    text-align: center;
+    padding: 12px 24px;
+}
+.fr {
+    border: 1px solid rgb(88, 129, 129);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: antiquewhite;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    font-size: 20px;
+    box-shadow: 10px 10px 10px rgb(88, 129, 129);
+    outline: none;
+}
+.btn{
+    background-color: white;
+    color: rgb(85, 79, 79);
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background-color 0.5s ease, transform 0.8s ease, box-shadow 0.1s ease;
+}
+.btn:hover {
+    background-color: rgb(85, 79, 79);
+    color: white; 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer; 
+    transform: scale(1.05);
+}
+
+.tx{
+    background: none;
+    width: 70%;
+    height: 10vh;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: antiquewhite;
+    margin-bottom: 15px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+label{
+    position: relative;
+    border: 2px solid gray;
+    border-radius: 20px;
+    display: block;
+    width: 15%;
+    padding: 10px 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="radio"]:checked + label{
+    background-color: white;
+    color: black;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
