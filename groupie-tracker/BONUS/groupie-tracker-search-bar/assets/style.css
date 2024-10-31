@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: sans-serif;
+    display: flex;
+    /* background-color: #dca9a9; */
+    /* background-color: #dca9a9; */
+    flex-wrap: wrap;
+    gap: 30px; 
+    justify-content: center;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+header h1 {
+    margin: 0;
+}
+.search{
+    background: none;
+    position: relative;
+    left: 80%;
+    display: inline-block;
+    bottom: 10px;
+}
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+.search-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #55483e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.search-button:hover{
+    transition: all ease .5s;
+    background-color: #6d6161;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    left: 50%;
+}
+ul li {
+    display: inline;
+    margin-right: 10px;
+}
+ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+main{
+    place-items: center;
+    margin-inline: 1.5rem;
+    padding-block: 5rem;
+    z-index: 1;
+    margin-top: 40px;
+}
+h2{
+    font-size: 50px;
+    padding-bottom: 30px;
+    font-family: sans-serif;
+    text-shadow: 8px 8px 10px gray;
+    text-align: center;
+    transition: all ease 0.8s;
+}
+h2:hover{
+    font-size: 80px;
+    transition: all ease 0.8s;
+}
+.artists-grid {
+    column-gap: 63px;
+    display: flex;
+    row-gap: 3.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #353130;
+    height: 100%;
+    padding-bottom: 10%;
+    padding-top: 20px;
+}
+.artist-card{
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px gray;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.artist-image{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   
+.data{
+    width: 240px;
+    background-color: rgb(82, 78, 74);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+    text-align: center;
+}
+button{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    background: none;
+    color: black;
+    border-radius: 20px;
+    padding: 6px;
+    background-color: #b9afaf;
+    border: none;
+    margin-top: 5px;
+}
+button:hover{
+    transition: all ease .5s;
+    background-color: #dca9a9;
+}
+.artist-card:hover .data{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+.artist-card:hover {
+    animation: remove-overflow 2s forwards;
+}
+.artist-card:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+.artist-card:not(:hover) .data{
+    animation: remove-data 1s forwards;
+}
+@keyframes show-data{
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(-7rem);
+    }
+}
+@keyframes remove-overflow{
+    to{
+        overflow: initial;
+    }
+}
+@keyframes remove-data{
+    0%{
+        transform: translateY(-7rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+@keyframes show-overflow{
+    0%{
+        overflow: initial;
+        pointer-events: none;
+    }
+    50%{
+        overflow: hidden;
+    }
+} 
+.footer{
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
