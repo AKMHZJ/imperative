@@ -18,7 +18,7 @@ func main() {
 		return
 	}
 
-	// fmt.Println(containt + "\n")
+	fmt.Println(containt + "\n")
 
 	farm, err := fun.ParseInput(containt)
 	if err != nil {
@@ -29,9 +29,6 @@ func main() {
 	paths := fun.RetrievePaths(farm)
 
 	uniquePaths := fun.Logic(paths)
-	for _, v := range uniquePaths {
-		fmt.Println(v)
-	}
 
 	if len(uniquePaths) == 0 {
 		fmt.Println("ERROR: no valid path found")
