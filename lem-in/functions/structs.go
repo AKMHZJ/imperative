@@ -6,10 +6,10 @@ type Room struct {
 	Isend   bool
 }
 
-type Antfarm struct {
-	numberofant int
+type AntFarm struct {
+	NumAnts     int
 	Rooms       map[string]*Room
-	link        map[string][]string
-	StartRoom   *Room
-	EndRoom     *Room
+	Connections map[string][]string
+	Start       *Room
+	End         *Room
 }

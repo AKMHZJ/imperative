@@ -6,15 +6,15 @@ import (
 	"strings"
 )
 
-func ParseContent(content string) (*Antfarm, error) {
-	farm := &Antfarm{
-		Rooms: make(map[string]*Room),
-		link:  make(map[string][]string),
+func ParseInput(content string) (*AntFarm, error) {
+	farm := &AntFarm{
+		Rooms:       make(map[string]*Room),
+		Connections: make(map[string][]string),
 	}
 
 	lines := strings.Split(content, "\n")
 	lineNum := 0
-	var currentcommand string
+	var currentCommand string
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
@@ -22,9 +22,9 @@ func ParseContent(content string) (*Antfarm, error) {
 
 		if line == "" || strings.HasPrefix(line, "#") {
 			if line == "##start" {
-				currentcommand += "start"
+				currentCommand += "start"
 			} else if line == "##end" {
-				currentcommand += "end"
+				currentCommand += "end"
 			}
 			continue
 		}
@@ -32,9 +32,10 @@ func ParseContent(content string) (*Antfarm, error) {
 		if lineNum == 1 {
 			ants, err := strconv.Atoi(line)
 			if err != nil || ants < 1 {
-				return nil, fmt.Errorf("invalid ant number in line %d: %s", lineNum, line)
+				return nil, fmt.Errorf("invalid ant number on line %d: %s", lineNum, line)
 			}
-			farm.numberofant = ants
+			farm.NumAnts = ants
+
 		} else if !strings.Contains(line, "-") {
 			parts := strings.Fields(line)
 			if len(parts) < 1 {
@@ -44,36 +45,44 @@ func ParseContent(content string) (*Antfarm, error) {
 			name := parts[0]
 			room := &Room{Name: name}
 
-			if currentcommand == "start" {
+			if currentCommand == "start" {
 				room.Isstart = true
-				farm.StartRoom = room
-				currentcommand = ""
-			} else if currentcommand == "end" {
+				farm.Start = room
+				currentCommand = ""
+			} else if currentCommand == "end" {
 				room.Isend = true
-				farm.EndRoom = room
-				currentcommand = ""
+				farm.End = room
+				currentCommand = ""
 			}
+
 			farm.Rooms[name] = room
+
 		} else if strings.Contains(line, "-") {
 			parts := strings.Split(line, "-")
 			if len(parts) != 2 {
 				return nil, fmt.Errorf("invalid link format on line %d: %s", lineNum, line)
 			}
+
 			room1, room2 := parts[0], parts[1]
-			if _, exist := farm.Rooms[room1]; !exist {
+
+			if _, exists := farm.Rooms[room1]; !exists {
 				return nil, fmt.Errorf("unknown room in link on line %d: %s", lineNum, room1)
 			}
-			if _, exist := farm.Rooms[room2]; !exist {
+			if _, exists := farm.Rooms[room2]; !exists {
 				return nil, fmt.Errorf("unknown room in link on line %d: %s", lineNum, room2)
 			}
-			farm.link[room1] = append(farm.link[room1], room2)
-			farm.link[room2] = append(farm.link[room2], room1)
+
+			farm.Connections[room1] = append(farm.Connections[room1], room2)
+			farm.Connections[room2] = append(farm.Connections[room2], room1)
+
 		} else {
 			return nil, fmt.Errorf("invalid line format on line %d: %s", lineNum, line)
 		}
 	}
-	if farm.StartRoom == nil || farm.EndRoom == nil {
-		return nil, fmt.Errorf("start or end room not found")
+
+	if farm.Start == nil || farm.End == nil {
+		return nil, fmt.Errorf("start or end room not defined")
 	}
+
 	return farm, nil
 }
